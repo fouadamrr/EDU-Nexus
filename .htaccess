@@ -1,0 +1,11 @@
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteBase /
+
+    # If it's a real file or directory, serve it normally
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+
+    # Otherwise, pass everything to router.php
+    RewriteRule ^(.*)$ router.php [L,QSA]
+</IfModule>
